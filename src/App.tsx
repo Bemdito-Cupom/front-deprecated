@@ -34,9 +34,7 @@ const App: React.FC = () => {
             element={
               <ProtectedRoute
                 element={
-                  <Layout>
-                    <Home />
-                  </Layout>
+                  <Layout />
                 }
               />
             }
