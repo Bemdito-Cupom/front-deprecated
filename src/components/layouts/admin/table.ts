@@ -2,14 +2,14 @@ export const ESTABLISHMENT_TABLE_HEAD = [
   "Estabelecimento",
   "Status",
   "Cupons",
-  "Aćões",
+  "Ações",
 ];
 
 export const USER_TABLE_HEAD = [
   "Usuário",
   "Aniversário",
   "Ativo desde",
-  "Aćões",
+  "Ações",
 ];
 
 export const ESTABLISHMENT_TABLE_ROWS = [

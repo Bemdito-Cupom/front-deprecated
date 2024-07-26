@@ -12,8 +12,11 @@ import {
 
 import { USER_TABLE_HEAD } from "./admin/table";
 
-import { UserPlus, Calendar, Ticket, Lightbulb } from "lucide-react";
+import { UserPlus, Calendar, Ticket, Lightbulb, LineChart } from "lucide-react";
 import { EstablishmentTable } from "./admin/EstablishmentTable";
+import Example from "../chats/LineChat";
+import Example2 from "../chats/LineChat2";
+import Example3 from "../chats/BarChart";
 
 interface User {
   name: string;
@@ -234,10 +237,16 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({
             </div>
           </Navbar>
           <article className="w-full h-[90%] flex flex-col gap-6">
-            <div className="grid grid-cols-3 h-[10rem] w-full gap-4">
-              <div className="bg-gray-100" />
-              <div className="bg-gray-100" />
-              <div className="bg-gray-100" />
+            <div className="grid grid-cols-3 w-full gap-4">
+              <div className="bg-gray-100">
+                <Example />
+              </div>
+              <div className="bg-gray-100">
+                <Example3 />
+              </div>
+              <div className="bg-gray-100">
+                <Example2 />
+              </div>
             </div>
 
             <div className="flex h-fit">
@@ -250,7 +259,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({
               </Button>
             </div>
 
-            <div className="grid grid-cols-2 h-[30rem] gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 h-[30rem] gap-4">
               <EstablishmentTable />
 
               <Card className="overflow-hidden border border-[#c4c4c4]/80">
