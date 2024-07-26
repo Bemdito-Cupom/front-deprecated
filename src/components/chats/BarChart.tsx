@@ -93,6 +93,7 @@ export default function Example3() {
   return (
     <Card className="m-0 p-0">
       <CardBody className="p-0">
+        {/*@ts-ignore*/}
         <Chart {...chartConfig} />
       </CardBody>
     </Card>

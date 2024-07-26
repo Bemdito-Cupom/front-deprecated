@@ -103,6 +103,7 @@ export default function Example2(): JSX.Element {
   return (
     <Card className="m-0 p-0">
       <CardBody className="p-0">
+        {/*@ts-ignore*/}
         <Chart {...chartConfig} />
       </CardBody>
     </Card>
