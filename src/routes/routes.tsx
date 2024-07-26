@@ -1,15 +1,16 @@
-import React from 'react';
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import {Login} from '../pages/login/Login';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Login from "../pages/login/Login";
 // import {Register} from '../pages/register/Register';
 // import {Home} from '../pages/Home';
 
-const Routes: React.FC = () => {
+const AppRoutes: React.FC = () => {
   return (
-  <Routes>
-      <Route path="/login" element={<Login />}/>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      {/* Add other routes here */}
     </Routes>
   );
 };
 
-export default Routes;
+export default AppRoutes;

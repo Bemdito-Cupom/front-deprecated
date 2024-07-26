@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/Auth";
 import { SpeedDialWithTextOutside } from "../development/SpeedDial";
-import AdminLayout from "./AdminLayout";
+import AdminLayout from "./layouts/AdminLayout";
 import UserLayout from "./UserLayout";
 import EstablishmentLayout from "./EstablishmentLayout";
 
