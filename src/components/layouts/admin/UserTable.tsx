@@ -1,32 +1,32 @@
-import { Ticket } from "lucide-react";
-import { ESTABLISHMENT_TABLE_HEAD } from "./table";
-import { Typography, Card } from "@material-tailwind/react";
+import React from "react";
+import { Card, Typography } from "@material-tailwind/react";
+import { Calendar } from "lucide-react";
+import { USER_TABLE_HEAD } from "./table";
 
-interface Establishment {
-  establishmentName: string;
-  cnpj: string;
+interface User {
+  name: string;
+  cpf: string;
   email: string;
-  establishmentPhone: string;
-  responsibleName: string;
-  responsibleCPF: string;
-  responsiblePhone: string;
+  phone: string;
   createdAt: string;
 }
 
-interface EstablishmentTableProps {
-  establishmentData: Establishment[];
+interface UserTableProps {
+  userData: User[];
+  formatDate: (date: string) => string;
 }
 
-function EstablishmentTable({
-  establishmentData,
-}: EstablishmentTableProps): JSX.Element {
+const UserTable: React.FC<UserTableProps> = ({ userData, formatDate }) => {
   return (
-    <Card className="overflow-hidden border border-[#c4c4c4]/80">
+    <Card
+      className="overflow-hidden border border-[#c4c4c4]/80"
+      id="user table"
+    >
       <div>
         <table className="w-full min-w-max table-auto text-left">
           <thead>
             <tr>
-              {ESTABLISHMENT_TABLE_HEAD.map((head) => (
+              {USER_TABLE_HEAD.map((head) => (
                 <th
                   key={head}
                   className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
@@ -43,15 +43,15 @@ function EstablishmentTable({
             </tr>
           </thead>
           <tbody>
-            {establishmentData.map((establishment, index) => (
-              <tr key={establishment.cnpj} className="even:bg-blue-gray-50/50">
+            {userData.map((user, index) => (
+              <tr key={index} className="even:bg-blue-gray-50/50">
                 <td className="p-4">
                   <Typography
                     variant="small"
                     color="blue-gray"
                     className="font-normal"
                   >
-                    {establishment.establishmentName}
+                    {user.name}
                   </Typography>
                 </td>
                 <td className="p-4">
@@ -70,8 +70,8 @@ function EstablishmentTable({
                     color="blue-gray"
                     className="font-normal flex items-center gap-1"
                   >
-                    <Ticket size={16} />
-                    N/A
+                    <Calendar size={16} />
+                    {formatDate(user.createdAt)}
                   </Typography>
                 </td>
                 <td className="p-4">
@@ -92,6 +92,6 @@ function EstablishmentTable({
       </div>
     </Card>
   );
-}
+};
 
-export { EstablishmentTable };
+export default UserTable;
