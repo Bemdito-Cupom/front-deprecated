@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Card, Button, Navbar } from "@material-tailwind/react";
+import { Typography, Button, Navbar } from "@material-tailwind/react";
 
-import { USER_TABLE_HEAD } from "./admin/table";
-
-import { UserPlus, Calendar, Store } from "lucide-react";
+import { UserPlus, Store } from "lucide-react";
 import { EstablishmentTable } from "./admin/EstablishmentTable";
 import UserDialog from "./admin/dialogs/UserDialogs";
 import EstablishmentDialog from "./admin/dialogs/EstablishmentDialogs";
 import Example from "../chats/LineChat";
 import Example3 from "../chats/BarChart";
 import Example2 from "../chats/LineChat2";
+import UserTable from "./admin/UserTable";
 
 interface User {
   name: string;
@@ -172,80 +171,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({
 
             <div className="grid grid-cols-1 lg:grid-cols-2 h-[30rem] gap-4">
               <EstablishmentTable establishmentData={establishmentData} />
-
-              <Card
-                className="overflow-hidden border border-[#c4c4c4]/80"
-                id="user table"
-              >
-                <div>
-                  <table className="w-full min-w-max table-auto text-left">
-                    <thead>
-                      <tr>
-                        {USER_TABLE_HEAD.map((head) => (
-                          <th
-                            key={head}
-                            className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
-                          >
-                            <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-normal leading-none opacity-70"
-                            >
-                              {head}
-                            </Typography>
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {userData.map((user, index) => (
-                        <tr key={index} className="even:bg-blue-gray-50/50">
-                          <td className="p-4">
-                            <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-normal"
-                            >
-                              {user.name}
-                            </Typography>
-                          </td>
-                          <td className="p-4">
-                            <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-normal flex items-center gap-2"
-                            >
-                              <div className="w-[0.6rem] h-[0.6rem] bg-green-800 rounded-full" />
-                              Ativo
-                            </Typography>
-                          </td>
-                          <td className="p-4">
-                            <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-normal flex items-center gap-1"
-                            >
-                              <Calendar size={16} />
-                              {formatDate(user.createdAt)}
-                            </Typography>
-                          </td>
-                          <td className="p-4">
-                            <Typography
-                              as="a"
-                              href="#"
-                              variant="small"
-                              color="blue-gray"
-                              className="font-medium"
-                            >
-                              Edit
-                            </Typography>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </Card>
+              <UserTable userData={userData} formatDate={formatDate} />
             </div>
           </article>
         </main>
