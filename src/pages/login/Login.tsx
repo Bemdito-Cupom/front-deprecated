@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/Auth";
 
 import LOGO from "../../assets/OBEMDITO.png";
+import { signin } from "../../axios/users";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -23,9 +24,10 @@ function Login() {
     e.preventDefault();
     // Here you would normally send a request to your backend
     // For this example, we'll just simulate a successful login
-    login("fake-jwt-token");
-    localStorage.setItem("role", "admin");
-    navigate("/");
+    signin(email, password)
+    // login("fake-jwt-token");
+    // localStorage.setItem("role", "admin");
+    // navigate("/");
   };
 
   const handleRegister = () => {
