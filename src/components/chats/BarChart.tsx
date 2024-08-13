@@ -22,7 +22,7 @@ const chartConfig = {
     dataLabels: {
       enabled: false,
     },
-    colors: ["#020617"],
+    colors: ["#d62828"],
     plotOptions: {
       bar: {
         columnWidth: "40%",

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Button, Navbar } from "@material-tailwind/react";
 
-import { UserPlus, Store } from "lucide-react";
+import LOGO from "../../assets/OBEMDITO.png";
+
+import { UserPlus, Store, LogOut } from "lucide-react";
 import { EstablishmentTable } from "./admin/EstablishmentTable";
 import UserDialog from "./admin/dialogs/UserDialogs";
 import EstablishmentDialog from "./admin/dialogs/EstablishmentDialogs";
@@ -32,13 +34,11 @@ interface Establishment {
 interface AdminLayoutProps {
   isAuthenticated?: boolean;
   handleLogout: () => void;
-  children?: React.ReactNode;
 }
 
 const AdminLayout: React.FC<AdminLayoutProps> = ({
   isAuthenticated,
   handleLogout,
-  children,
 }) => {
   const [openUser, setOpenUser] = useState(false);
   const [openEstablishment, setOpenEstablishment] = useState(false);
@@ -124,18 +124,19 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({
       />
       <section className="w-screen h-screen bg-[#eee] flex items-center justify-center">
         <main className="p-6 w-full max-w-[80rem] h-full flex flex-col justify-between">
-          <Navbar className="py-2 px-4 lg:px-8 lg:py-4">
+          <Navbar className="py-2 px-4 lg:px-8 lg:py-4 bg-[#1b1b1b]">
             <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-              <Typography
-                as="a"
-                href="/"
-                variant="small"
-                className="mr-4 cursor-pointer py-1.5 font-normal"
-              >
-                <span>Admin Dashboard</span>
-              </Typography>
+              <img src={LOGO} className="max-w-[12rem]" />
               {isAuthenticated && (
-                <Button onClick={handleLogout}>Logout</Button>
+                <Button
+                  variant="gradient"
+                  color="red"
+                  className="flex items-center gap-2"
+                  onClick={handleLogout}
+                >
+                  Sair
+                  <LogOut size={18} />
+                </Button>
               )}
             </div>
           </Navbar>
